@@ -13,6 +13,7 @@ public class PracticeFormTest {
   static void beforeAll() {
     Configuration.browserSize = "1920x1080";
     Configuration.baseUrl = "https://demoqa.com";
+    Configuration.browser = "edge";
   }
 
   @Test
