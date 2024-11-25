@@ -3,7 +3,6 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -19,8 +18,7 @@ public class PracticeFormTest {
        // Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
         //Configuration.holdBrowserOpen = true;
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
+
 
         Configuration.timeout = 5000; // default 4000
     }
@@ -29,6 +27,8 @@ public class PracticeFormTest {
     void fillFormTest() {
        // open("/automation-practice-form");
         open("https://demoqa.com/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         $("#firstName").setValue("Alice");
         $("#lastName").setValue("Ivanova");
         $("#userEmail").setValue("alice-lilo@mail.ru");
