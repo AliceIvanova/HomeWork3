@@ -13,14 +13,11 @@ public class PracticeFormTest {
   static void beforeAll() {
     Configuration.browserSize = "1920x1080";
     Configuration.baseUrl = "https://demoqa.com";
-    Configuration.pageLoadStrategy = "eager";
-    Configuration.holdBrowserOpen = true;
-    Configuration.browser = "edge";
-    Configuration.timeout = 5000; // default 4000
   }
 
   @Test
   void fillFormTest() {
+    open();
 //        open("/automation-practice-form");
     open("https://demoqa.com/automation-practice-form");
     executeJavaScript("$('#fixedban').remove()");
