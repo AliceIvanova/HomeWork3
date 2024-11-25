@@ -1,24 +1,16 @@
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class PracticeFormTest {
-  @BeforeAll
-  static void beforeAll() {
-    Configuration.browserSize = "1920x1080";
-    Configuration.baseUrl = "https://demoqa.com";
-    Configuration.browser = "edge";
-  }
+public class PracticeFormTest extends BaseTest{
 
   @Test
+  @DisplayName("Какая то проверка, разбей их на мелкие шаги.")
   void fillFormTest() {
-    open();
 //        open("/automation-practice-form");
     open("https://demoqa.com/automation-practice-form");
     executeJavaScript("$('#fixedban').remove()");
