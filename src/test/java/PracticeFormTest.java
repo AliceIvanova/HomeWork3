@@ -16,8 +16,8 @@ public class PracticeFormTest {
 @BeforeAll
 static void beforeAll() {
   Configuration.browserSize = "1920x1080";
-  //Configuration.baseUrl = "https://demoqa.com";
-  //Configuration.browser = "edge";
+  Configuration.baseUrl = "https://demoqa.com";
+  Configuration.browser = "edge";
   Configuration.headless = false;
   Configuration.pageLoadStrategy = "eager";
   open();
@@ -25,10 +25,9 @@ static void beforeAll() {
 
   @Test
   void fillFormTest() {
-   // open("/automation-practice-form");
-    open("https://demoqa.com/automation-practice-form");
-    //executeJavaScript("$('#fixedban').remove()");
-   // executeJavaScript("$('footer').remove()");
+   open("/automation-practice-form");
+    executeJavaScript("$('#fixedban').remove()");
+    executeJavaScript("$('footer').remove()");
     $("#firstName").setValue("Alice");
     $("#lastName").setValue("Ivanova");
     $("#userEmail").setValue("alice-lilo@mail.ru");
@@ -39,10 +38,7 @@ static void beforeAll() {
     $(".react-datepicker__month-select").selectOption("April");
     $(".react-datepicker__year-select").selectOption("2005");
     $$(".react-datepicker__day:not(.react-datepicker__day--outside-month)").findBy(text("28")).click();
-    //$(".subjects-auto-complete__control css-yk16xz-control").click();
     $("#subjectsInput").setValue("Maths").pressEnter();
-   // $(".subjects-auto-complete__control css-yk16xz-control").setValue("Maths").pressEnter();
-    //$("#hobbies-checkbox-1").click();
     $("#hobbiesWrapper").$(byText("Sports")).click();
     $("#hobbiesWrapper").$(byText("Reading")).click();
     $("#hobbiesWrapper").$(byText("Music")).click();
@@ -52,6 +48,7 @@ static void beforeAll() {
     $("#userForm #react-select-4-input").setValue("Delhi").pressEnter().scrollIntoView(false);
     $(byText("Submit")).scrollTo();
     $("#userForm #submit").click();
+
     $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
     $(".table").$(byText("Student Name")).sibling(0).shouldHave(text("Alice Ivanova"));
     $(".table").$(byText("Student Email")).sibling(0).shouldHave(text("alice-lilo@mail.ru"));
