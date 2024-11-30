@@ -16,16 +16,13 @@ public class PracticeFormTest {
 @BeforeAll
 static void beforeAll() {
   Configuration.browserSize = "1920x1080";
-  Configuration.baseUrl = "https://demoqa.com";
-  Configuration.browser = "edge";
-  Configuration.headless = false;
   Configuration.pageLoadStrategy = "eager";
   open();
 }
 
   @Test
   void fillFormTest() {
-   open("/automation-practice-form");
+    open("https://demoqa/automation-practice-form");
     executeJavaScript("$('#fixedban').remove()");
     executeJavaScript("$('footer').remove()");
     $("#firstName").setValue("Alice");
@@ -61,11 +58,8 @@ static void beforeAll() {
     $(".table").$(byText("Address")).sibling(0).shouldHave(text("1 2 3 4 5 6"));
     $(".table").$(byText("State and City")).sibling(0).shouldHave(text("NCR Delhi"));
   }
-  @AfterAll
+  @AfterEach
   public static void tearDown() {
-    // Чистка куки и localStorage.
-    Selenide.clearBrowserCookies();
-    Selenide.clearBrowserLocalStorage();
     closeWebDriver();
   }
 
